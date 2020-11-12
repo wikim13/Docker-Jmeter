@@ -8,8 +8,9 @@ IMAGE="wikim13/jmeter:5.3"
 # Finally run
 sudo docker stop ${NAME} > /dev/null 2>&1
 sudo docker rm ${NAME} > /dev/null 2>&1
-sudo docker run --name ${NAME} -i -v ${PWD}:${PWD} -w ${PWD} ${IMAGE}  -Dlog_level.jmeter=ERROR jmeter.save.saveservice.subresults=false -Jjmeter.save.saveservice.response_data=true -Jjmeter.save.saveservice.response_data.on_error=true -Jjmeter.save.saveservice.output_format=xml -Jjmeter.save.saveservice.samplerData=true -Jjmeterengine.force.system.exit=true \
-	-n -t ${T_DIR}/test-plan.jmx -l ${T_DIR}/test-plan.jtl -j ${T_DIR}/jmeter.log
+sudo docker run --name ${NAME} -v ${PWD}:${PWD} -w ${PWD} ${IMAGE} -Jjmeterengine.force.system.exit=true jmeter.save.saveservice.subresults=false -Jjmeter.save.saveservice.response_data=tr$
+        -n -t ${T_DIR}/test-plan.jmx -l ${T_DIR}/test-plan.jtl
+
 
 
  

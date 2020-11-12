@@ -38,7 +38,7 @@ RUN    apk update \
 RUN curl -L --silent ${JMETER_PLUGINS_DOWNLOAD_URL}/jmeter-plugins-manager/${JMETER_PLUGINS_MANAGER_VERSION}/jmeter-plugins-manager-${JMETER_PLUGINS_MANAGER_VERSION}.jar -o ${JMETER_PLUGINS_FOLDER}/jmeter-plugins-manager-${JMETER_PLUGINS_MANAGER_VERSION}.jar
 RUN curl -L --silent ${JMETER_PLUGINS_DOWNLOAD_URL}/cmdrunner/${CMDRUNNER_VERSION}/cmdrunner-${CMDRUNNER_VERSION}.jar -o ${JMETER_HOME}/lib/cmdrunner-${CMDRUNNER_VERSION}.jar && \
     java -cp ${JMETER_PLUGINS_FOLDER}/jmeter-plugins-manager-${JMETER_PLUGINS_MANAGER_VERSION}.jar org.jmeterplugins.repository.PluginManagerCMDInstaller && ls -lrt ${JMETER_BIN} && cd ${JMETER_BIN} && chmod a+x PluginsManagerCMD.sh && pwd 
-RUN  /opt/apache-jmeter-5.3/bin/PluginsManagerCMD.sh install jpgc-cmd=2.2,jpgc-dummy=0.4,jpgc-filterresults=2.2,jpgc-synthesis=2.2,jpgc-json 2.7,jpgc-graphs-basic=2.0
+RUN  /opt/apache-jmeter-5.3/bin/PluginsManagerCMD.sh install jpgc-json 2.7,jpgc-graphs-basic=2.0
 
 
 # Set global PATH such that "jmeter" command is found
