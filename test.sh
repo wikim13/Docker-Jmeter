@@ -43,4 +43,6 @@ echo "See HTML test report in ${R_DIR}/index.html"
 
 
 # upload the output files to an s3 bucket
+echo "upload output to s3 started"
 aws s3 sync ${T_DIR} $S3_folder
+echo "upload output to s3 finished"
